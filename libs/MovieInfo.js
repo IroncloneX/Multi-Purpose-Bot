@@ -6,8 +6,10 @@ return
 if(options.apikey==undefined){
 Bot.sendMessage("Api Key is not defined")
 }else{
+var movie = encodeURI(options.movie)
+User.setProperty("MovieInfo", movie, "string")
 HTTP.get({
-  url: "http://www.omdbapi.com/?apikey=" + options.key + "&t=" + options.movie + "&y=" + options.year + "",
+  url: "http://www.omdbapi.com/?apikey=" + options.apikey + "&t=" + movie + "&y=" + options.year + "",
   success: options.onSuccess
 })
 }}
@@ -31,7 +33,7 @@ var actor = s.Actors
 var year = s.Year
 var response = s.Response
 var error = s.Error
-
+var boxot = decodeURI(User.getProperty("MovieInfo")
 if(response=="False"){
   Api.sendMessage({
   text: "<i>No results were found that included all of your search.</i>\n\nYour search -  "+boxot+ " -  did not find any movie.\n\n<b>Server message</b>: \n" + error,
