@@ -33,7 +33,7 @@ var actor = s.Actors
 var year = s.Year
 var response = s.Response
 var error = s.Error
-var boxot = decodeURI(User.getProperty("MovieInfo")
+var boxot = decodeURI(User.getProperty("MovieInfo"))
 if(response=="False"){
   Api.sendMessage({
   text: "<i>No results were found that included all of your search.</i>\n\nYour search -  "+boxot+ " -  did not find any movie.\n\n<b>Server message</b>: \n" + error,
